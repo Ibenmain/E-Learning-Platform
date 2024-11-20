@@ -11,44 +11,51 @@ const Features = () => {
         },
         {
             id: 1,
-            title: "Robotics",
-            description: "Discover the world of robotics and learn how to build and program robots with ease",
-            icon: "ix:ai",
+            title: "3D",
+            description: "From modeling to animation, explore the world of 3D design through hands-on interactive projects",
+            icon: "gis:cube-3d",
         },
         {
             id: 2,
-            title: "Coding",
-            description: "Learn the fundamentals of coding and programming in a fun and engaging way",
-            icon: "ix:ai",
+            title: "Robotic",
+            description: "From mechanics to programming, build real-world robots through hands-on practical projects",
+            icon: "hugeicons:robotic",
         },
         {
             id: 3,
-            title: "3D Modeling",
-            description: "Explore the world of 3D modeling and learn how to create and design 3D objects",
-            icon: "ix:ai",
+            title: "Coding",
+            description: "From basics to full-stack development, create powerful applications through hands-on coding projects",
+            icon: "mdi:code-tags",
         },
         {
             id: 4,
-            title: "Artificial Intelligence",
-            description: "Discover the world of artificial intelligence and learn how to build and program robots with ease",
-            icon: "ix:ai",
+            title: "CAD",
+            description: "From concept to manufacturing, create professional designs through hands-on CAD projects",
+            icon: "mdi:file-cad",
         },
-        {
-            id: 5,
-            title: "Machine Learning",
-            description: "From basics to advanced concepts, learn AI and machine learning through interactive lessons",
-            icon: "ix:ai",
-        },
-
     ]
-  return (
-    <section className='h-[721px]'>
-        <h1>Oue Features</h1>
-        <div className='flex flex-wrap'>
-        <Icon icon="ix:ai" color={'gradient-to-tr from-[#9FEF00] to-[#03FF89]'} />
-        </div>
-    </section>
-  )
+
+    return (
+        <section className='relative w-full flex items-center flex-col py-11'>
+            <div className='flex flex-col items-center justify-center z-0'>
+
+                <h1 className='font-extrabold text-[48px] leading-[48px] text-[#1D293C] dark:text-[#F1F5F9]'>Our Features</h1>
+                <div className='flex flex-wrap items-center justify-center gap-10 py-14'>
+                    {features.map(feature => (
+                        <div key={feature.id} className='flex flex-col w-[400px] h-auto rounded-xl shadow-custom bg-white p-4 space-y-2 font-sans dark:bg-[#212A34]'>
+                            <Icon icon={feature.icon} width={48} height={48} style={{ color: "#9FEF00" }} />
+                            <h1 className='text-[#334155] dark:text-[#F1F5F9] font-extrabold text-[32px] leading-[48px] '>{feature.title}</h1>
+                            <p className='text-[#65748B] dark:text-[#F1F5F9] font-semibold text-[18px] leading-[28px]' >{feature.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+                <img className='absolute top-16 left-12 -z-10' src="images/icon00.svg" alt="icon not found" />
+                <img className='absolute top-0 -right-28 t- -z-10' src="images/icon01.svg" alt="icon not found" />
+                <img className='absolute top-[500px] right-40 -z-10 ' src="images/icon02.svg" alt="icon not found" />
+                <img className='absolute top-[500px] left-28 -z-10' src="images/icon03.svg" alt="icon not found" />
+        </section>
+    )
 }
 
 export default Features

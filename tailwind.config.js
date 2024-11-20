@@ -13,6 +13,9 @@ module.exports = {
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'sans-serif'],
       },
+      boxShadow: {
+        custom: '0px 0px 15px 0px #0000001A',
+      },
     },
   },
   plugins: [
