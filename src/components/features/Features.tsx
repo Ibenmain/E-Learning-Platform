@@ -36,7 +36,7 @@ const Features = () => {
     ]
 
     return (
-        <section className='relative w-full flex items-center flex-col py-11'>
+        <section className='relative w-full flex items-center flex-col py-11 overflow-hidden'>
             <div className='flex flex-col items-center justify-center z-0'>
 
                 <h1 className='font-extrabold text-[48px] leading-[48px] text-[#1D293C] dark:text-[#F1F5F9]'>Our Features</h1>
@@ -50,10 +50,10 @@ const Features = () => {
                     ))}
                 </div>
             </div>
-                <img className='absolute top-16 left-12 -z-10' src="images/icon00.svg" alt="icon not found" />
-                <img className='absolute top-0 -right-28 t- -z-10' src="images/icon01.svg" alt="icon not found" />
-                <img className='absolute top-[500px] right-40 -z-10 ' src="images/icon02.svg" alt="icon not found" />
-                <img className='absolute top-[500px] left-28 -z-10' src="images/icon03.svg" alt="icon not found" />
+            <img className='absolute top-16 left-12 -z-10' src="images/icon00.svg" alt="icon not found" width={100} height={100} />
+            <img className='absolute top-2 -right-10  -z-10' src="images/icon01.svg" alt="icon not found" width={250} height={250} />
+            <img className='absolute top-[500px] right-40 -z-10 ' src="images/icon02.svg" alt="icon not found" width={70} height={70} />
+            <img className='absolute top-[500px] left-28 -z-10' src="images/icon03.svg" alt="icon not found" width={70} height={70} />
         </section>
     )
 }
