@@ -50,10 +50,10 @@ const Features = () => {
                     ))}
                 </div>
             </div>
-            <img className='absolute top-16 left-12 -z-10' src="images/icon00.svg" alt="icon not found" width={100} height={100} />
-            <img className='absolute top-2 -right-10  -z-10' src="images/icon01.svg" alt="icon not found" width={250} height={250} />
-            <img className='absolute top-[500px] right-40 -z-10 ' src="images/icon02.svg" alt="icon not found" width={70} height={70} />
-            <img className='absolute top-[500px] left-28 -z-10' src="images/icon03.svg" alt="icon not found" width={70} height={70} />
+            <img className='absolute hidden sm:block top-16 left-12 -z-10' src="images/icon00.svg" alt="icon not found" width={100} height={100} />
+            <img className='absolute hidden sm:block top-2 -right-10  -z-10' src="images/icon01.svg" alt="icon not found" width={250} height={250} />
+            <img className='absolute hidden sm:block top-[500px] right-40 -z-10 ' src="images/icon02.svg" alt="icon not found" width={70} height={70} />
+            <img className='absolute hidden sm:block top-[500px] left-28 -z-10' src="images/icon03.svg" alt="icon not found" width={70} height={70} />
         </section>
     )
 }

@@ -5,7 +5,7 @@ import LandingPage from './pages/landingPage';
 
 function App() {
   return (
-    <div className='container mx-auto shadow-md h-screen'>
+    <div className='container mx-auto  '>
       <Layout>
         <LandingPage />
       </Layout>
