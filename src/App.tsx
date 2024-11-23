@@ -5,7 +5,7 @@ import LandingPage from './pages/landingPage';
 
 function App() {
   return (
-    <div className='container mx-auto  '>
+    <div className='max-w-[1728px] container mx-auto'>
       <Layout>
         <LandingPage />
       </Layout>

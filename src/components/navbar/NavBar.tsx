@@ -5,7 +5,7 @@ const Navbar = () => {
     const { theme, setTheme } = useTheme()
 
     return (
-        <div className='flex items-center justify-between h-14 p-2'>
+        <div className=' items-center justify-between h-14 p-2 sm:flex hidden'>
             <div>
                 <img src="images/logo.png" alt="logo not found" />
             </div>
