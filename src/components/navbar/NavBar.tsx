@@ -7,7 +7,11 @@ const Navbar = () => {
     return (
         <div className=' items-center justify-between h-14 p-2 sm:flex hidden'>
             <div>
-                <img src="images/logo.png" alt="logo not found" />
+                {theme === "dark" ?
+                    <img src="images/logo-dark.png" alt="logo not found" className='w-28 ' />
+                    :
+                    <img src="images/logo-light.png" alt="logo not found" className='w-28 ' />
+                }
             </div>
             <div className='flex items-center gap-4 '>
                 <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>

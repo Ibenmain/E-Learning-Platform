@@ -2,7 +2,7 @@ import { Icon } from '@iconify/react';
 import React, { useState } from 'react';
 
 const Question = () => {
-    const [openQuestionId, setOpenQuestionId] = useState<null | number>(null);
+    const [openQuestionId, setOpenQuestionId] = useState<boolean[]>(Array(5).fill(false));
 
     const questions = [
         {
@@ -29,7 +29,7 @@ const Question = () => {
             id: 4,
             question: "What if I need help during a course?",
             answer: "Our support team is available to help you with any questions or issues you may have. You can contact us via email or chat."
-        }
+        },
     ];
 
     return (
@@ -37,35 +37,64 @@ const Question = () => {
             <h1 className="font-extrabold ~text-[28px]/[48px] ~leading-[28px]/48px] font-sans text-[#1D293C] dark:text-[#F1F5F9] w-full text-center">
                 Common Questions
             </h1>
-           
-            <div className="py-20 ~px-10/20 grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
-                {questions.map((question) => (
-                    <div
-                        key={question.id}
-                        className={`~w-[300px]/[468px] rounded-lg p-4 ${
-                            openQuestionId === question.id ? 'bg-[#9FEF0080]' : 'dark:bg-[#212A34] bg-white'
-                        } shadow-sm`}
-                    >
-                        <div className="flex items-center justify-between">
-                            <h3 className="font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
-                                {question.question}
-                            </h3>
-                            <button onClick={() => setOpenQuestionId(openQuestionId === question.id ? null : question.id)}>
-                                <Icon
-                                    icon={openQuestionId === question.id ? "lsicon:minus-filled" : "gg:add"}
-                                    width={32}
-                                    height={32}
-                                    color={openQuestionId === question.id ? "#1D293C" : "#9FEF0080"}
-                                />
-                            </button>
+
+            <div className="py-20 ~px-10/20 flex flex-col sm:flex-row sm:justify-around items-center sm:items-start space-y-10 sm:space-y-0">
+                <div className='space-y-10'>
+                    {questions.slice(0, 3).map((question) => (
+                        <div
+                            key={question.id}
+                            className={`~w-[300px]/[468px] rounded-lg p-4 ${openQuestionId[question.id] ? 'bg-[#9FEF0080]' : 'dark:bg-[#212A34] bg-white'
+                                } shadow-lg`}
+                        >
+                            <div className="flex items-center justify-between">
+                                <h3 className="font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
+                                    {question.question}
+                                </h3>
+                                <button onClick={() => setOpenQuestionId({ ...openQuestionId, [question.id]: !openQuestionId[question.id] })}>
+                                    <Icon
+                                        icon={openQuestionId[question.id] ? "lsicon:minus-filled" : "gg:add"}
+                                        width={32}
+                                        height={32}
+                                        color={openQuestionId[question.id] ? "#1D293C" : "#9FEF0080"}
+                                    />
+                                </button>
+                            </div>
+                            {openQuestionId[question.id] && (
+                                <p className="mt-8 font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
+                                    {question.answer}
+                                </p>
+                            )}
                         </div>
-                        {openQuestionId === question.id && (
-                            <p className="mt-8 font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
-                                {question.answer}
-                            </p>
-                        )}
-                    </div>
-                ))}
+                    ))}
+                </div>
+                <div className='space-y-10'>
+                    {questions.slice(3, 5).map((question) => (
+                        <div
+                            key={question.id}
+                            className={`~w-[300px]/[468px] rounded-lg p-4 ${openQuestionId[question.id] ? 'bg-[#9FEF0080]' : 'dark:bg-[#212A34] bg-white'
+                                } shadow-lg`}
+                        >
+                            <div className="flex items-center justify-between">
+                                <h3 className="font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
+                                    {question.question}
+                                </h3>
+                                <button onClick={() => setOpenQuestionId({ ...openQuestionId, [question.id]: !openQuestionId[question.id] })}>
+                                    <Icon
+                                        icon={openQuestionId[question.id] ? "lsicon:minus-filled" : "gg:add"}
+                                        width={32}
+                                        height={32}
+                                        color={openQuestionId[question.id] ? "#1D293C" : "#9FEF0080"}
+                                    />
+                                </button>
+                            </div>
+                            {openQuestionId[question.id] && (
+                                <p className="mt-8 font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
+                                    {question.answer}
+                                </p>
+                            )}
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     );

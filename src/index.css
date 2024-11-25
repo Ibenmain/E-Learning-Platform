@@ -2,6 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://cdn.jsdelivr.net/npm/@nivo/core/dist/nivo.min.css');
+
 
 
 
