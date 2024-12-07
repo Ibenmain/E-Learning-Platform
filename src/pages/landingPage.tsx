@@ -9,12 +9,14 @@ import Footer from '../components/footer/Footer'
 const LandingPage = () => {
   return (
     <div>
-        <HeroSection/>
-        <Features/>
-        <Potential/>
-        <Question/>
-        <Contact/>
-        <Footer/>
+      <HeroSection />
+      <div className='container mx-auto'>
+        <Features />
+        <Potential />
+        <Question />
+        <Contact />
+      </div>
+      <Footer />
     </div>
   )
 }

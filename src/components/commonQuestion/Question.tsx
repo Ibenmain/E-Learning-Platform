@@ -1,5 +1,6 @@
 import { Icon } from '@iconify/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { motion } from "motion/react";
 
 const Question = () => {
     const [openQuestionId, setOpenQuestionId] = useState<boolean[]>(Array(5).fill(false));
@@ -87,11 +88,19 @@ const Question = () => {
                                     />
                                 </button>
                             </div>
-                            {openQuestionId[question.id] && (
+                            <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{
+                                    height: openQuestionId[question.id] ? "auto" : 0,
+                                    opacity: openQuestionId[question.id] ? 1 : 0,
+                                }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 4 }}
+                            >
                                 <p className="mt-8 font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
                                     {question.answer}
                                 </p>
-                            )}
+                            </motion.div>
                         </div>
                     ))}
                 </div>
