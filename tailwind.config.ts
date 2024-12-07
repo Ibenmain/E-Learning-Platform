@@ -1,7 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 import fluid, { extract } from 'fluid-tailwind'
+import type { Config } from 'tailwindcss'
 
-module.exports = {
+
+const config = {
   content: {
     files: [
       "./src/**/*.{html,js,jsx,ts,tsx}",
@@ -22,4 +24,6 @@ module.exports = {
     fluid
   ],
   darkMode: 'class',
-};
+} as Config;
+
+export default config
