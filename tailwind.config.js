@@ -1,7 +1,7 @@
-import fluid, { extract } from 'fluid-tailwind';
-import { defineConfig } from 'tailwindcss';
+/** @type {import('tailwindcss').Config} */
+import fluid, { extract } from 'fluid-tailwind'
 
-export default defineConfig({
+module.exports = {
   content: {
     files: [
       "./src/**/*.{html,js,jsx,ts,tsx}",
@@ -22,4 +22,4 @@ export default defineConfig({
     fluid
   ],
   darkMode: 'class',
-});
+};
