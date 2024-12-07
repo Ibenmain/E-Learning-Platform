@@ -1,10 +1,12 @@
+
 /** @type {import('tailwindcss').Config} */
 import fluid, { extract } from 'fluid-tailwind';
 
 module.exports = {
   content: {
     files: [
-      "./src/**/*.{html,js,jsx,ts,tsx}",
+      './src/pages/**/*.{js,ts,jsx,tsx}',
+      './src/components/**/*.{js,ts,jsx,tsx}',
     ],
     extract,
   },
