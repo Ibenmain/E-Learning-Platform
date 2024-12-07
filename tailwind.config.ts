@@ -1,14 +1,12 @@
-/** @type {import('tailwindcss').Config} */
-import fluid, { extract } from 'fluid-tailwind'
-import type { Config } from 'tailwindcss'
+const fluid = require('fluid-tailwind').default;
+const { extract } = require('fluid-tailwind');
 
-
-const config = {
+module.exports = {
   content: {
     files: [
       "./src/**/*.{html,js,jsx,ts,tsx}",
     ],
-    extract
+    extract,
   },
   theme: {
     extend: {
@@ -21,9 +19,7 @@ const config = {
     },
   },
   plugins: [
-    fluid
+    fluid,
   ],
   darkMode: 'class',
-} as Config;
-
-export default config
+};
