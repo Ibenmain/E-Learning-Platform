@@ -2,7 +2,7 @@ import React from 'react';
 
 const HeroSection = () => {
     return (
-        <section className="relative h-[437px] flex justify-center items-center">
+        <section className="relative h-[437px] flex justify-center items-center bg-white">
             <div
                 className="absolute inset-0 bg-cover bg-center blur-[4px]"
                 style={{ backgroundImage: 'url(/images/Fast-Internet.gif)' }}
