@@ -1,13 +1,10 @@
-const fluid = require('fluid-tailwind').default;
-const { extract } = require('fluid-tailwind');
+/** @type {import('tailwindcss').Config} */
+import fluid from 'fluid-tailwind'; 
 
 module.exports = {
-  content: {
-    files: [
-      "./src/**/*.{html,js,jsx,ts,tsx}",
-    ],
-    extract,
-  },
+  content: [
+    "./src/**/*.{html,js,jsx,ts,tsx}",
+  ],
   theme: {
     extend: {
       fontFamily: {
