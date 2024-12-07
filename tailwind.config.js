@@ -1,10 +1,13 @@
 /** @type {import('tailwindcss').Config} */
-import fluid from 'fluid-tailwind'; 
+import fluid, { extract } from 'fluid-tailwind';
 
 module.exports = {
-  content: [
-    "./src/**/*.{html,js,jsx,ts,tsx}",
-  ],
+  content: {
+    files: [
+      "./src/**/*.{html,js,jsx,ts,tsx}",
+    ],
+    extract,
+  },
   theme: {
     extend: {
       fontFamily: {
