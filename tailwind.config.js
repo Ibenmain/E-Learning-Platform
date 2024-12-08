@@ -1,15 +1,17 @@
 /** @type {import('tailwindcss').Config} */
-import fluid, { extract } from 'fluid-tailwind';
+import fluid, { extract, screens, fontSize } from 'fluid-tailwind';
 
 const tailwindConfig = {
   content: {
     files: [
-      "./src/**/*.{js,ts,jsx,tsx,mdx}",
+      "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
       "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     extract,
   },
   theme: {
+    screens,
+    fontSize,
     extend: {
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'sans-serif'],
@@ -19,7 +21,9 @@ const tailwindConfig = {
       },
     },
   },
-  plugins: [fluid],
+  plugins: [fluid({
+    checkSC144: false,
+  }),],
   darkMode: 'class',
 };
 
