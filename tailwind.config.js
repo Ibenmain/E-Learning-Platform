@@ -4,10 +4,8 @@ import fluid, { extract } from 'fluid-tailwind';
 const tailwindConfig = {
   content: {
     files: [
-      "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+      "./src/**/*.{js,ts,jsx,tsx,mdx}",
       "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-      "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-      "./node_modules/fluid-tailwind/**/*.{js,ts}",
     ],
     extract,
   },
