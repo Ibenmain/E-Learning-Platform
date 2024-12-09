@@ -39,15 +39,15 @@ const Question = () => {
                 Common Questions
             </h1>
 
-            <div className="py-20 ~px-10/20 flex flex-col sm:flex-row sm:justify-around items-center sm:items-start space-y-10 sm:space-y-0">
-                <div className='space-y-10'>
+            <div className="py-20 ~px-10/20 flex flex-col sm:flex-row sm:justify-around items-center sm:items-start space-y-10 sm:space-y-0 ">
+                <div className='space-y-10 '>
                     {questions.slice(0, 3).map((question) => (
                         <div
                             key={question.id}
-                            className={`~w-[300px]/[468px] rounded-lg p-4 ${openQuestionId[question.id] ? 'bg-[#9FEF0080]' : 'dark:bg-[#212A34] bg-white'
+                            className={`~w-[300px]/[468px] h-full flex items-center flex-col justify-between rounded-lg p-4 ${openQuestionId[question.id] ? 'bg-[#9FEF0080]' : 'dark:bg-[#212A34] '
                                 } shadow-lg`}
                         >
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between w-full h-full">
                                 <h3 className="font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
                                     {question.question}
                                 </h3>
@@ -70,7 +70,7 @@ const Question = () => {
                                 transition={{ duration: 0.2 }}
                             >
                                 <p className="mt-8 font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
-                                    {question.answer}
+                                    {question.answer}≠
                                 </p>
                             </motion.div>
                         </div>
@@ -80,10 +80,10 @@ const Question = () => {
                     {questions.slice(3, 5).map((question) => (
                         <div
                             key={question.id}
-                            className={`~w-[300px]/[468px] rounded-lg p-4 ${openQuestionId[question.id] ? 'bg-[#9FEF0080]' : 'dark:bg-[#212A34] bg-white'
+                            className={`~w-[300px]/[468px] h-full flex items-center flex-col justify-between rounded-lg p-4 ${openQuestionId[question.id] ? 'bg-[#9FEF0080]' : 'dark:bg-[#212A34] bg-white'
                                 } shadow-lg`}
                         >
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between w-full h-full">
                                 <h3 className="font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
                                     {question.question}
                                 </h3>

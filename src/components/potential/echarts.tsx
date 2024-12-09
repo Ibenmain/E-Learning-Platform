@@ -17,7 +17,7 @@ const RadarChart = () => {
       {
         type: 'radar',
         lineStyle: {
-          color: 'blue',
+          color: 'rgb(159 239 0)',
         },
         areaStyle: {
           color: 'rgb(159 239 0)',
@@ -38,10 +38,10 @@ const RadarChart = () => {
   };
 
   return (
-    <div className="w-1/2">
+    <div className=" ~w-[300px]/[400px]">
       <ReactECharts
         option={options}
-        className="w-[100%] h-auto"
+        className="~w-[300px]/[400px] "
         opts={{ renderer: 'canvas' }}
       />
     </div>
