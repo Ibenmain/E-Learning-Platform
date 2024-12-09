@@ -8,8 +8,8 @@ const RadarChart = () => {
         { name: '3D', max: 6500 },
         { name: 'Robotic', max: 16000 },
         { name: 'Electronic', max: 30000 },
-        { name: 'cad', max: 38000 },
-        { name: 'coding', max: 52000 },
+        { name: 'CAD', max: 38000 },
+        { name: 'Coding', max: 52000 },
         { name: 'AI', max: 25000 },
       ],
     },
@@ -32,10 +32,13 @@ const RadarChart = () => {
   };
 
   return (
-    <ReactECharts
-      option={options}
-      style={{ height: '400px', width: '600px' }}
-    />
+    <div className="w-1/2">
+      <ReactECharts
+        option={options}
+        className="w-[100%] h-auto"
+        opts={{ renderer: 'canvas' }}
+      />
+    </div>
   );
 };
 
