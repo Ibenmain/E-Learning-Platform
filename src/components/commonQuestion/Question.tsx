@@ -51,35 +51,7 @@ const Question = () => {
                                 <h3 className="font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
                                     {question.question}
                                 </h3>
-                                <button onClick={() => setOpenQuestionId({ ...openQuestionId, [question.id]: !openQuestionId[question.id] })}>
-                                    <Icon
-                                        icon={openQuestionId[question.id] ? "lsicon:minus-filled" : "gg:add"}
-                                        width={32}
-                                        height={32}
-                                        color={openQuestionId[question.id] ? "#1D293C" : "#9FEF0080"}
-                                    />
-                                </button>
-                            </div>
-                            {openQuestionId[question.id] && (
-                                <p className="mt-8 font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
-                                    {question.answer}
-                                </p>
-                            )}
-                        </div>
-                    ))}
-                </div>
-                <div className='space-y-10'>
-                    {questions.slice(3, 5).map((question) => (
-                        <div
-                            key={question.id}
-                            className={`~w-[300px]/[468px] rounded-lg p-4 ${openQuestionId[question.id] ? 'bg-[#9FEF0080]' : 'dark:bg-[#212A34] bg-white'
-                                } shadow-lg`}
-                        >
-                            <div className="flex items-center justify-between">
-                                <h3 className="font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
-                                    {question.question}
-                                </h3>
-                                <button onClick={() => setOpenQuestionId({ ...openQuestionId, [question.id]: !openQuestionId[question.id] })}>
+                                <button className='z-10' onClick={() => setOpenQuestionId({ ...openQuestionId, [question.id]: !openQuestionId[question.id] })}>
                                     <Icon
                                         icon={openQuestionId[question.id] ? "lsicon:minus-filled" : "gg:add"}
                                         width={32}
@@ -95,7 +67,43 @@ const Question = () => {
                                     opacity: openQuestionId[question.id] ? 1 : 0,
                                 }}
                                 exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 4 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                <p className="mt-8 font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
+                                    {question.answer}
+                                </p>
+                            </motion.div>
+                        </div>
+                    ))}
+                </div>
+                <div className='space-y-10'>
+                    {questions.slice(3, 5).map((question) => (
+                        <div
+                            key={question.id}
+                            className={`~w-[300px]/[468px] rounded-lg p-4 ${openQuestionId[question.id] ? 'bg-[#9FEF0080]' : 'dark:bg-[#212A34] bg-white'
+                                } shadow-lg`}
+                        >
+                            <div className="flex items-center justify-between">
+                                <h3 className="font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
+                                    {question.question}
+                                </h3>
+                                <button className='z-10' onClick={() => setOpenQuestionId({ ...openQuestionId, [question.id]: !openQuestionId[question.id] })}>
+                                    <Icon
+                                        icon={openQuestionId[question.id] ? "lsicon:minus-filled" : "gg:add"}
+                                        width={32}
+                                        height={32}
+                                        color={openQuestionId[question.id] ? "#1D293C" : "#9FEF0080"}
+                                    />
+                                </button>
+                            </div>
+                            <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{
+                                    height: openQuestionId[question.id] ? "auto" : 0,
+                                    opacity: openQuestionId[question.id] ? 1 : 0,
+                                }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.2 }}
                             >
                                 <p className="mt-8 font-medium ~text-[14px]/[20px] ~leading-[14px]/[28px] text-[#1D293C] dark:text-[#CBD5E1]">
                                     {question.answer}

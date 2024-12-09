@@ -22,6 +22,12 @@ const RadarChart = () => {
         areaStyle: {
           color: 'rgb(159 239 0)',
         },
+        emphasis: {
+          focus: 'series',
+          areaStyle: {
+            color: 'rgba(159, 239, 0, 0.8)',
+          },
+        },
         data: [
           {
             value: [4200, 8000, 20000, 10000, 50000, 18000],
