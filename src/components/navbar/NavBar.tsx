@@ -1,5 +1,6 @@
 import { Icon } from '@iconify/react'
 import { useTheme } from "next-themes"
+import Dropdown from '../dropdown/DropdownMenu'
 
 const Navbar = () => {
     const { theme, setTheme } = useTheme()
@@ -33,7 +34,9 @@ const Navbar = () => {
                         <img src="images/logo-light.png" alt="logo not found" className='w-16 ' />
                     }
                 </div>
-                <div>menu</div>
+                <div>
+                    <Dropdown />
+                </div>
 
             </div>
         </>
