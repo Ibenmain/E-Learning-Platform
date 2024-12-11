@@ -34,7 +34,7 @@ const Navbar = () => {
                         <img src="images/logo-light.png" alt="logo not found" className='w-16 ' />
                     }
                 </div>
-                <div>
+                <div >
                     <Dropdown />
                 </div>
 
