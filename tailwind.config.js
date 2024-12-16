@@ -57,6 +57,10 @@ const tailwindConfig = {
       boxShadow: {
         custom: '0px 0px 15px 0px #0000001A',
       },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(86.4deg, #9FEF00 23.35%, #03FF89 99.37%)',
+        'custom-black-red': 'linear-gradient(to bottom, #080811 5%, #370D1A 50%, #080811 100%)',
+      },
     },
   },
   plugins: [fluid, require("tailwindcss-animate")],

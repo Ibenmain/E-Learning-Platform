@@ -1,5 +1,4 @@
 import React from 'react';
-import { VideoBackground } from '../video/video';
 
 const HeroSection = () => {
     return (

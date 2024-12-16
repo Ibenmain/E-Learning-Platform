@@ -1,9 +1,12 @@
 import Navbar from "../components/navbar/NavBar";
 import { ThemeProvider } from "../components/themeProvider/theme-provider";
 
+const Layout = ({ children }: { children: React.ReactNode }) => {
+    // const location = useLocation();
+    // const noNavbarRoutes = ["/notfound", ""];
+    // const hideNavbar = noNavbarRoutes.includes(location.pathname);
 
-const Layout = ({ children }: { children: React.ReactNode }) => (
-    <>
+    return (
         <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -13,7 +16,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => (
             <Navbar />
             <main>{children}</main>
         </ThemeProvider>
-    </>
-);
+    );
+};
 
 export default Layout;
