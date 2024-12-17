@@ -1,5 +1,5 @@
 import { Icon } from '@iconify/react';
-import React from 'react';
+import { Image } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
@@ -32,7 +32,7 @@ const LoginForm = () => {
               <label htmlFor="email" className='leading-6 text-[16px] font-normal font-sans'>Email</label>
               <div className="relative w-[343px] h-[56px]">
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-                  📧
+                  <img src="/figure/arobas.svg" alt="email" width={20} height={20} />
                 </span>
                 <input
                   type="text"
@@ -47,7 +47,7 @@ const LoginForm = () => {
               <div>
                 <div className="relative w-[343px] h-[56px]">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-                    🔒
+                    <img src="/figure/lock.svg" alt="password" width={20} height={20} />
                   </span>
                   <input
                     type="password"
@@ -72,12 +72,12 @@ const LoginForm = () => {
               </p>
             </button>
             <button className="mt-4 w-[343px] h-[56px] rounded-[16px] bg-transparent border-white border-2 text-white flex flex-row justify-center items-center space-x-2" >
-            <Icon icon="octicon:mark-github-24" width="24" height="24" />              <p>
+              <Icon icon="octicon:mark-github-24" width="24" height="24" />              <p>
                 Continue with Github
               </p>
             </button>
             <p className='text-[16px] font-normal leading-5 font-sans text-center flex flex-row justify-center items-center mt-2 space-x-1'>
-              <p>Don’t have an account?</p> <button  onClick={() => navigate('/signup')} className="text-[#9FEF2E] underline">Register</button>
+              <p>Don’t have an account?</p> <button onClick={() => navigate('/signup')} className="text-[#9FEF2E] underline">Register</button>
             </p>
           </div>
         </div>

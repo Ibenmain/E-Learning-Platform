@@ -24,7 +24,7 @@ const SignupForm = () => {
               Register
             </h1>
             <p className="text-start font-sans font-normal text-[16px]  w-full max-w-[343px] leading-5 ">
-              Login now to track all your expenses and income at a place!
+              Create an account to access all the features of <span className='text-[#9FEF2E]'>OCM!</span>
             </p>
           </div>
           <form action="" className="flex flex-col w-full space-y-3">
@@ -32,7 +32,7 @@ const SignupForm = () => {
               <label htmlFor="email" className='leading-6 text-[16px] font-normal font-sans'>Email</label>
               <div className="relative w-[343px] h-[56px]">
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-                  📧
+                  <img src="/figure/arobas.svg" alt="email" width={20} height={20} />
                 </span>
                 <input
                   type="text"
@@ -46,7 +46,7 @@ const SignupForm = () => {
               <label htmlFor="email" className='leading-6 text-[16px] font-normal font-sans'>Your Name</label>
               <div className="relative w-[343px] h-[56px]">
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-                  📧
+                  <img src="/figure/profile.svg" alt="email" width={20} height={20} />
                 </span>
                 <input
                   type="text"
@@ -61,7 +61,7 @@ const SignupForm = () => {
               <div>
                 <div className="relative w-[343px] h-[56px]">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
-                    🔒
+                    <img src="/figure/lock.svg" alt="password" width={20} height={20} />
                   </span>
                   <input
                     type="password"

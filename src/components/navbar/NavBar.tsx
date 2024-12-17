@@ -38,7 +38,7 @@ const Navbar = () => {
                     ) : (
                         <>
                             <button className='h-8 w-32 size-4 font-sans rounded-[2px]  bg-black dark:bg-[#212A34] text-white ' onClick={() => navigate('/login')}>Login</button>
-                            <button className='h-8 w-32 font-sans rounded-[2px] bg-gradient-to-tr from-[#9FEF00] to-[#03FF89] text-black '>Get started</button>
+                            <button className='h-8 w-32 font-sans rounded-[2px] bg-gradient-to-tr from-[#AAED00] to-[#5CFD85] text-black ' onClick={() => navigate('/landingpage')}>Get started</button>
                         </>
                     )}
                 </div>
