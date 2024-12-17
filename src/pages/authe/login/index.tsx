@@ -1,7 +1,10 @@
 import { Icon } from '@iconify/react';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
+  const navigate = useNavigate()
+
   return (
     <div className="relative h-screen flex justify-center items-center">
       <video
@@ -34,7 +37,7 @@ const LoginForm = () => {
                 <input
                   type="text"
                   id="email"
-                  placeholder="Email"
+                  placeholder="Ex: abc@example.com"
                   className="w-full h-full pl-10 rounded-[16px] font-sans placeholder:font-normal placeholder:italic placeholder:text-[16px] placeholder:leading-[24px] placeholder:[letter-spacing:-0.011em] focus:outline-none bg-transparent border-2 border-[#9FEF2E]"
                 />
               </div>
@@ -56,7 +59,7 @@ const LoginForm = () => {
               </div>
               <a href="/forgetpassword" className='text-sm font-sans font-normal leading-6 text-[#9FEF2E] underline'>Forgot Password?</a>
             </div>
-            <button className=" w-[343px] h-[56px] rounded-[16px] bg-custom-gradient text-black" >Login</button>
+            <button className=" w-[343px] h-[56px] rounded-[16px] bg-custom-gradient text-black text-base font-bold leading-6" >Login</button>
           </form>
           <div className='flex flex-col w-full'>
             <div className=' w-full py-4'>
@@ -73,8 +76,8 @@ const LoginForm = () => {
                 Continue with Github
               </p>
             </button>
-            <p className='text-[16px] font-normal leading-5 font-sans text-center flex flex-row justify-center items-center mt-2'>
-              Don’t have an account? <a href="/signup" className="text-[#9FEF2E] underline">Register</a>
+            <p className='text-[16px] font-normal leading-5 font-sans text-center flex flex-row justify-center items-center mt-2 space-x-1'>
+              <p>Don’t have an account?</p> <button  onClick={() => navigate('/signup')} className="text-[#9FEF2E] underline">Register</button>
             </p>
           </div>
         </div>
