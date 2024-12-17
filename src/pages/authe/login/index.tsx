@@ -54,7 +54,7 @@ const LoginForm = () => {
                   />
                 </div>
               </div>
-              <a href="/forgetpassword" className='text-xs font-sans font-normal leading-6 text-[#9FEF2E] underline'>Forgot Password?</a>
+              <a href="/forgetpassword" className='text-sm font-sans font-normal leading-6 text-[#9FEF2E] underline'>Forgot Password?</a>
             </div>
             <button className=" w-[343px] h-[56px] rounded-[16px] bg-custom-gradient text-black" >Login</button>
           </form>
