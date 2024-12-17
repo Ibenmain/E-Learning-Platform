@@ -21,7 +21,7 @@ const SignupForm = () => {
           <div className='w-full space-y-4'>
             <img src="/figure/rows.svg" alt="logo" className="w-[38px] h-[38px]" />
             <h1 className="text-[32px] text-[#9FEF2E] leading-6 font-bold ">
-              login
+              Register
             </h1>
             <p className="text-start font-sans font-normal text-[16px]  w-full max-w-[343px] leading-5 ">
               Login now to track all your expenses and income at a place!
