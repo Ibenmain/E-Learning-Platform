@@ -43,7 +43,7 @@ const LoginForm = () => {
               </div>
             </div>
             <div className='space-y-1'>
-              <label htmlFor="password" className='leading-6 text-[16px] font-normal font-sans'>Password</label>
+              <label htmlFor="password" className='leading-6 text-[16px] font-normal font-sans'>Your Password</label>
               <div>
                 <div className="relative w-[343px] h-[56px]">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
