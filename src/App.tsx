@@ -6,6 +6,7 @@ import NotFound from './pages/notfound';
 import LoginForm from './pages/authe/login';
 import SignupForm from './pages/authe/signup';
 import ForgetPassword from './pages/authe/forgetpassword';
+import VerificationCode from './pages/authe/verificationCode';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
+        <Route path="/verificationcode" element={<VerificationCode />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>

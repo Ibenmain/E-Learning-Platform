@@ -1,5 +1,4 @@
 import { Icon } from '@iconify/react';
-import { Image } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
@@ -19,7 +18,9 @@ const LoginForm = () => {
       <div className="relative z-10 flex flex-col  items-center justify-center text-white bg-custom-black-red px-20 py-16 rounded-[12px]">
         <div className='flex flex-col items-center space-y-4' >
           <div className='w-full space-y-4'>
-            <img src="/figure/rows.svg" alt="logo" className="w-[38px] h-[38px]" />
+            <button onClick={() => navigate('/landingpage')}>
+              <img src="/figure/rows.svg" alt="logo" className="w-[38px] h-[38px]" />
+            </button>
             <h1 className="text-[32px] text-[#9FEF2E] leading-6 font-bold ">
               login
             </h1>
@@ -38,7 +39,7 @@ const LoginForm = () => {
                   type="text"
                   id="email"
                   placeholder="Ex: abc@example.com"
-                  className="w-full h-full pl-10 rounded-[16px] font-sans placeholder:font-normal placeholder:italic placeholder:text-[16px] placeholder:leading-[24px] placeholder:[letter-spacing:-0.011em] focus:outline-none bg-transparent border-2 border-[#9FEF2E]"
+                  className="w-full h-full pl-12 rounded-[16px] font-sans placeholder:font-normal placeholder:italic placeholder:text-[16px] placeholder:leading-[24px] placeholder:[letter-spacing:-0.011em] focus:outline-none bg-transparent border-2 border-[#9FEF2E]"
                 />
               </div>
             </div>
@@ -53,7 +54,7 @@ const LoginForm = () => {
                     type="password"
                     id="password"
                     placeholder="Password"
-                    className="w-full h-full pl-10 rounded-[16px] font-sans placeholder:font-normal placeholder:italic placeholder:text-[16px] placeholder:leading-[24px] placeholder:[letter-spacing:-0.011em] focus:outline-none bg-transparent border-2 border-[#9FEF2E]"
+                    className="w-full h-full pl-12 rounded-[16px] font-sans placeholder:font-normal placeholder:italic placeholder:text-[16px] placeholder:leading-[24px] placeholder:[letter-spacing:-0.011em] focus:outline-none bg-transparent border-2 border-[#9FEF2E]"
                   />
                 </div>
               </div>
