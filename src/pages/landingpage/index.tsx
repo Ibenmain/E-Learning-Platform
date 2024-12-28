@@ -13,7 +13,6 @@ const LandingPage = () => {
         <Features />
         <Potential />
         <Question />
-        <Contact />
       </div>
       <Footer />
     </div>
