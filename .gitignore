@@ -5,6 +5,8 @@ node_modules/
 build/
 dist/
 
+backend/venv/
+
 # TypeScript
 *.tsbuildinfo
 
