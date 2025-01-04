@@ -9,6 +9,7 @@ import { useTheme } from "next-themes"
 
 const Dropdown = () => {
     const {theme, setTheme} = useTheme()
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger>
