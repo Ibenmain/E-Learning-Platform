@@ -42,3 +42,5 @@ repos:
     -   id: mypy
         additional_dependencies: [types-pyyaml]
         exclude: ^testing/resources/
+
+exclude: ^venv/
