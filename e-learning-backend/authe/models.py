@@ -1,7 +1,11 @@
 # authe/models.py
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-from django.db import models
+from __future__ import annotations
+
 from django.contrib.auth.base_user import BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin
+from django.db import models
+
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -18,6 +22,7 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
         return self.create_user(email, password, **extra_fields)
 
+
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=255, blank=True)
     email = models.EmailField(unique=True)
@@ -25,7 +30,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
-    
+
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'

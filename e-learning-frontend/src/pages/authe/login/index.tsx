@@ -3,7 +3,10 @@ import { useForm, Controller } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import GoogleLogin from '../../../components/google/GoogleLogin';
+import { useAuth } from '../../../context/AutheContext';
 const schema = yup.object().shape({
   email: yup.string().email('Invalid email address').required('Email is required'),
   password: yup.string().min(5, 'Password must be at least 5 characters').required('Password is required'),
@@ -20,7 +23,9 @@ interface FormData {
 }
 
 const LoginForm = () => {
+  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const [disabled, setDisabled] = useState(false);
 
   const {
     control,
@@ -32,9 +37,56 @@ const LoginForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log('Form Data:', data);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/home');
+    }
+  }, [isAuthenticated, navigate]);
+
+  const onSubmit = async (data: FormData) => {
+    setDisabled(true);
+    console.log('this is my data input ',data);
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/api/authe/login/", data,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      console.log(response)
+      if (response.status === 200) {
+        login();
+        navigate('/home');
+        setDisabled(false);
+        sessionStorage.setItem('access_token', response.data.access_token);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+
   };
+
+//   const handleSuccess = async (credentialResponse:any) => {
+//     console.log("credentialResponse", credentialResponse);
+//     try {
+//         const token = credentialResponse.credential;
+//         console.log("token", token);
+//         const res = await axios.post("http://127.0.0.1:8000/api/authe/google/", { token });
+
+//         // Store token in localStorage
+//         localStorage.setItem("token", res.data.token);
+//         console.log("Login successful", res);
+//     } catch (error) {
+//         console.error("Login failed", error);
+//     }
+// };
+
+//   const handleError = () => {
+//     console.log('An error occurred during Google login.');
+//   };
+
 
   return (
     <div className="relative h-screen flex justify-center items-center">
@@ -114,6 +166,7 @@ const LoginForm = () => {
               <a href="/forgetpassword" className='text-sm font-sans font-normal leading-6 text-[#9FEF2E] underline'>Forgot Password?</a>
             </div>
             <button
+              disabled={disabled}
               type="submit"
               className="w-[343px] h-[56px] rounded-[16px] bg-custom-gradient text-black text-base font-bold leading-6"
             >
@@ -130,6 +183,7 @@ const LoginForm = () => {
               <button className="rounded-[16px] bg-transparent">
                 <Icon icon="octicon:mark-github-24" width="24" height="24" />
               </button>
+              <GoogleLogin/>
               <button className="rounded-[16px] bg-transparent">
                 <Icon icon="logos:google-icon" width="24" height="24" />
               </button>

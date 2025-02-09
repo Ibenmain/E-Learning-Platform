@@ -3,29 +3,35 @@ import { Controller, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useAuth } from '../../../context/AutheContext';
 
 
 const schema = yup.object().shape({
   email: yup.string().email('Invalid email address').required('Email is required'),
-  name: yup.string().required('Name is required'),
+  username: yup.string().required('Username is required'),
   password: yup.string().min(5, 'Password must be at least 5 characters').required('Password is required'),
 });
 
 const defaultValues = {
   email: '',
-  name: '',
+  username: '',
   password: '',
 };
 
 interface FormData {
   email: string;
-  name: string;
+  username: string;
   password: string;
 }
 
 
 const SignupForm = () => {
   const navigate = useNavigate()
+  const [disabled, setDisabled] = useState(false);
+  const { isAuthenticated } = useAuth();
+
 
   const {
     control,
@@ -37,10 +43,44 @@ const SignupForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: FormData) => {
-    console.log('Form Data:', data);
-  };
+  useEffect(() => {
+      if (isAuthenticated) {
+        navigate('/home');
+      }
+    }, [isAuthenticated, navigate]);
 
+
+  const onSubmit = async (data: FormData) => {
+    setDisabled(true);
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/api/authe/register/", data,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      console.log('response : ',response)
+      if (response.status === 201) {
+        console.log('User created successfully');
+        navigate('/login');
+        setDisabled(false);
+      }
+      else if (response.data.status === 409) {
+        console.log('User already exists');
+        navigate('/login');
+        setDisabled(false);
+      }
+      else {
+        console.log('Something went wrong');
+        setDisabled(false);
+      }
+    } catch (error) {
+      console.log('error : ',error);
+      console.error(error);
+    }
+
+  };
 
   return (
     <div className="relative h-screen flex justify-center items-center">
@@ -65,7 +105,7 @@ const SignupForm = () => {
           </div>
           <form onSubmit={handleSubmit(onSubmit)} action="" className="flex flex-col w-full space-y-3">
             <div className='space-y-1'>
-              <label htmlFor="email" className='leading-6 text-[16px] font-normal font-sans'>Email</label>
+              <label htmlFor="email" className='leading-6 text-[16px] font-normal font-sans'>Your email</label>
               <div>
                 <div className="relative w-[343px] h-[56px]">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
@@ -92,28 +132,27 @@ const SignupForm = () => {
               </div>
             </div>
             <div className='space-y-1'>
-              <label htmlFor="name" className='leading-6 text-[16px] font-normal font-sans'>Your Name</label>
+              <label htmlFor="name" className='leading-6 text-[16px] font-normal font-sans'>Your username</label>
               <div>
-
                 <div className="relative w-[343px] h-[56px]">
                   <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
                     <img src="/figure/profile.svg" alt="name" width={20} height={20} />
                   </span>
                   <Controller
-                    name='name'
+                    name='username'
                     control={control}
                     render={({ field }) => (
                       <input
                         {...field}
                         type="text"
-                        id="name"
+                        id="username"
                         placeholder="Ex: John Doe"
-                        className={`w-full h-full pl-12 rounded-[16px] font-sans focus:placeholder:opacity-0 placeholder:font-normal placeholder:italic placeholder:text-[16px] placeholder:leading-[24px] placeholder:[letter-spacing:-0.011em] focus:outline-none bg-transparent border-2 ${errors.name ? 'border-red-500' : 'border-[#9FEF2E]'}`}
+                        className={`w-full h-full pl-12 rounded-[16px] font-sans focus:placeholder:opacity-0 placeholder:font-normal placeholder:italic placeholder:text-[16px] placeholder:leading-[24px] placeholder:[letter-spacing:-0.011em] focus:outline-none bg-transparent border-2 ${errors.username ? 'border-red-500' : 'border-[#9FEF2E]'}`}
                       />
                     )}
                   />
                 </div>
-                {errors.name && (<span className="text-red-500 text-sm mt-1 block">{errors.name.message}</span>)}
+                {errors.username && (<span className="text-red-500 text-sm mt-1 block">{errors.username.message}</span>)}
               </div>
             </div>
             <div className='space-y-1'>
@@ -140,7 +179,7 @@ const SignupForm = () => {
                 {errors.password && (<span className="text-red-500 text-sm mt-1 block">{errors.password.message}</span>)}
               </div>
             </div>
-            <button type='submit' className=" w-[343px] h-[56px] rounded-[16px] bg-custom-gradient text-black text-base font-bold leading-6" >Register</button>
+            <button disabled={disabled} type='submit' className=" w-[343px] h-[56px] rounded-[16px] bg-custom-gradient text-black text-base font-bold leading-6" >Register</button>
           </form>
           <div className='flex flex-col w-full'>
             <div className=' w-full py-4 flex flex-row justify-center items-center '>

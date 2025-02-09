@@ -17,6 +17,7 @@ backend/venv/
 .env
 .env.local
 .env.*.local
+e-learning-backend/.env
 
 # OS files
 .DS_Store
@@ -35,4 +36,4 @@ yarn-error.log*
 .expo/
 
 # Precompiled Headers
-.pre-commit-config.yaml
+# .pre-commit-config.yaml

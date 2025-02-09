@@ -4,6 +4,7 @@
 @tailwind utilities;
 @import url('https://cdn.jsdelivr.net/npm/@nivo/core/dist/nivo.min.css');
 
+
 body {
   margin: 0;
   padding: 0;
@@ -16,7 +17,19 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hidden {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
 }
 
 @layer base {
