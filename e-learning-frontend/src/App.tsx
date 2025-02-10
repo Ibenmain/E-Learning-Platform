@@ -19,8 +19,8 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route path="landingpage" element={<LandingPage />} />
         <Route path="/" element={<Navigate to="/landingpage" />} />
+        <Route path="/landingpage" element={<LandingPage />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/forgetpassword" element={<ForgetPassword />} />
