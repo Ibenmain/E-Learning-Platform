@@ -14,7 +14,6 @@ function ProtectedRoute({ children }: { children: JSX.Element }) {
   return isAuthenticated ? children : <Navigate to="/login" />;
 }
 
-
 function App() {
   return (
     <Layout>
