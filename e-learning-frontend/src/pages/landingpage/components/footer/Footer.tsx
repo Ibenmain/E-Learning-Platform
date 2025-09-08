@@ -22,7 +22,7 @@ const Footer = () => {
     },
   ]
   return (
-    <section className=' bg-[#212A34] h-[348px] flex '>
+    <section className=' bg-[#212A34] h-[348px] flex  '>
       <div className='relative container mx-auto '>
         <div className='absolute bottom-5 right-4 sm:bottom-10 sm:right-0 flex flex-row gap-2 sm:gap-7'>
           {contactIcon.map((item) => {

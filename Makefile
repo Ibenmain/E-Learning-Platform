@@ -10,7 +10,7 @@ build:
 
 up:
 	@echo "Starting Docker containers..."
-	$(DOCKER_COMPOSE) up -d
+	$(DOCKER_COMPOSE) up
 	@echo "Waiting for backend to be ready..."
 	$(DOCKER_COMPOSE) exec backend $(WAIT_COMMAND)
 	@echo "Running migrations..."

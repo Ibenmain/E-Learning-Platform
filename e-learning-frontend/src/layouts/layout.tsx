@@ -1,13 +1,10 @@
-import Navbar from "../components/primaryNavbar/primaryNavbar";
-import Navbar2 from "../components/secondaryNavbar/secondaryNavbar";
+import PrivateNavbar from "../components/privateNavbar/privateNavbar";
+import PublicNavbar from "../components/publicNavbar/PublicNavbar";
 import { ThemeProvider } from "../components/themeProvider/theme-provider";
 import { useAuth } from "../context/AutheContext";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-    // const location = useLocation();
-    // const noNavbarRoutes = ["/notfound", ""];
-    // const hideNavbar = noNavbarRoutes.includes(location.pathname);
-    const {isAuthenticated} = useAuth();
+    const { isAuthenticated } = useAuth();
 
     return (
         <ThemeProvider
@@ -16,8 +13,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             enableSystem
             disableTransitionOnChange
         >
-            {isAuthenticated ? <Navbar2 /> : <Navbar />}
-            <main>{children}</main>
+            <div className="flex flex-col h-screen">
+
+                <PublicNavbar />
+                {isAuthenticated ? <PrivateNavbar /> : null}
+                <main className={`flex-1 overflow-auto ${isAuthenticated ? 'pt-[120px]' : ''}`}>{children}</main>
+            </div>
         </ThemeProvider>
     );
 };

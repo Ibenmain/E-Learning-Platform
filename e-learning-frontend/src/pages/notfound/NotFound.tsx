@@ -1,5 +1,4 @@
 import { useTheme } from 'next-themes';
-import React from 'react';
 
 const NotFound = () => {
     const { theme } = useTheme();
@@ -19,7 +18,7 @@ const NotFound = () => {
             </p>
 
             <a href="/" className="text-lg font-semibold text-white bg-gradient-to-tr from-[#9FEF00] to-[#03FF89] py-2 px-6 rounded-lg hover:bg-gradient-to-tl transition-all">
-                Go to Homepage
+                Go to Feed
             </a>
         </div>
     );

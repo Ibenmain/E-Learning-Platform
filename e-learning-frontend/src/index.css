@@ -5,9 +5,13 @@
 @import url('https://cdn.jsdelivr.net/npm/@nivo/core/dist/nivo.min.css');
 
 
+html,
 body {
   margin: 0;
   padding: 0;
+  height: auto;
+  overflow-x: auto;
+  overflow-y: auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -15,20 +19,68 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-  monospace;
+    monospace;
 }
 
+/* Apply to the whole page */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #9FEF00;
+  border-radius: 8px;
+  /* margin: 2px;
+  padding: 2px; */
+  border: #f0f0f0 solid 1.2px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+
+}
+
+.hide-scrollbar {
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  /* options: auto, thin, none */
+  scrollbar-color: #9FEF00 #f0f0f0;
+  /* thumb color, track color */
+}
+
+/* Optional: smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+
 @layer utilities {
+
   /* Chrome, Safari and Opera */
   .scrollbar-hidden::-webkit-scrollbar {
     display: none;
   }
 
   .scrollbar-hidden {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
   }
 }
 
@@ -83,6 +135,7 @@ code {
   * {
     @apply border-border;
   }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }

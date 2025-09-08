@@ -3,7 +3,6 @@ import {
     useContext,
     useState,
     ReactNode,
-    useEffect
 } from "react";
 import { useNavigate } from "react-router";
 
@@ -20,7 +19,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('isAuthenticated')
-    navigate('/login')
+    navigate('/signin')
   };
 
   return (

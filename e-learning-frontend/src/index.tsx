@@ -6,15 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { AuthProvider } from './context/AutheContext';
+import { Toaster } from 'react-hot-toast';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <GoogleOAuthProvider  clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID || ''}>
+  <GoogleOAuthProvider clientId={process.env.CLINET_ID || '905015281066-557kt995ggoch85vi30rlqhvt20cvpcm.apps.googleusercontent.com'}>
     <BrowserRouter>
       <React.StrictMode>
         <AuthProvider>
+          <Toaster position="bottom-right" reverseOrder={false}/>
           <App />
         </AuthProvider>
       </React.StrictMode>
@@ -22,7 +24,4 @@ root.render(
   </GoogleOAuthProvider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
