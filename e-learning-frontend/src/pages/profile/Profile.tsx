@@ -9,8 +9,8 @@ const Profile = () => {
   const [content, setContent] = useState("profile");
 
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full">
-      <div className="relative flex flex-col items-center justify-center w-full h-[250px] text-black">
+    <div className=" ">
+      <div className="relative flex flex-col items-center justify-center w-full text-black py-16">
         <div className="absolute w-full opacity-40 blur-sm dark:opacity-40 h-[250px]" style={{ backgroundImage: "url(/images/bg-profile.png)" }}></div>
         <div className="container mx-auto  gap-8 flex items-start">
           <div className="relative w-32 h-32 bg-[#9FEF00] rounded-full flex justify-center items-center ">
@@ -39,10 +39,10 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto w-full h-full">
+      <div className="container mx-auto w-full">
         <div className="flex gap-40 p-2">
-          <button onClick={() => { setContent("profile") }} className={`${content === "profile" ? "text-[#9fef00]" : "dark:text-white"} font-medium`}>Profile</button>
-          <button onClick={() => { setContent("friends") }} className={`${content === "friends" ? "text-[#9fef00]" : "dark:text-white"} font-medium`}>Friends</button>
+          <button onClick={() => { setContent("profile") }} className={`${content === "profile" ? "text-[#9fef00]" : "dark:text-white"} text-lg font-medium`}>Profile</button>
+          <button onClick={() => { setContent("friends") }} className={`${content === "friends" ? "text-[#9fef00]" : "dark:text-white"} text-lg font-medium`}>Friends</button>
         </div>
         {content === "profile" ? <ProfileInformation /> : <Friends />}
       </div>

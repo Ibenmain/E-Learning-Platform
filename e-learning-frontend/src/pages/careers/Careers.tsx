@@ -230,23 +230,23 @@ const Timeline = () => {
   return (
     <div
       ref={containerRef}
-      className=" min-h-[75vh] overflow-x-auto w-full flex-1 flex justify-center items-center overflow-y-scroll hide-scrollbar relative"
+      className=" min-h-[75vh] overflow-x-auto w-full flex-1 flex justify-center items-center overflow-y-scroll hide-scrollbar relative shrink-0"
     >
       <DrawLines circlePositions={circlePositions} />
 
-      <div className="flex items-center justify-between w-full relative" style={{ zIndex: 2 }}>
+      <div className="flex items-center justify-between w-full relative shrink-0" style={{ zIndex: 2 }}>
         {timelineData.map((point, idx) => {
           const isEven = idx % 2 === 0; // alternate positions
 
           return (
             <div
               key={idx}
-              className={`relative flex flex-col items-center mx-8 ${isEven ? "mt-56" : "mb-52"} `}
+              className={`relative flex flex-col items-center mx-8 shrink-0 ${isEven ? "mt-56" : "mb-52"} `}
             >
               {/* Circle for Q */}
               <div
                 ref={el => circleRefs.current[idx] = el}
-                className="w-28 h-28 rounded-full border-2 border-[#9FEF00] flex items-center justify-center text-black dark:text-white shadow-[0_0_10px_#9FEF00] z-10 bg-white dark:bg-black"
+                className="w-28 h-28 rounded-full border-2 border-[#9FEF00] shrink-0 flex items-center justify-center text-black dark:text-white shadow-[0_0_10px_#9FEF00] z-10 bg-white dark:bg-black"
               >
                 {point.quarter}
               </div>

@@ -1,4 +1,3 @@
-import PrivateNavbar from "../components/privateNavbar/privateNavbar";
 import PublicNavbar from "../components/publicNavbar/PublicNavbar";
 import { ThemeProvider } from "../components/themeProvider/theme-provider";
 import { useAuth } from "../context/AutheContext";
@@ -16,7 +15,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div className="flex flex-col h-screen">
 
                 <PublicNavbar />
-                {isAuthenticated ? <PrivateNavbar /> : null}
                 <main className={`flex-1 overflow-auto ${isAuthenticated ? 'pt-[120px]' : ''}`}>{children}</main>
             </div>
         </ThemeProvider>

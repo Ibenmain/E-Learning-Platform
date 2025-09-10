@@ -86,7 +86,7 @@ const ProfileInformation = () => {
                         <div className=" h-2 bg-[#9fef00] rounded-sm transition-all duration-300" style={{ width: "50%" }}></div>
                     </div>
                 </div>
-                <div className="dark:bg-[#212a34] bg-[#f5f5f5] flex justify-between flex-col p-5 rounded-sm">
+                <div className="dark:bg-[#212a34] bg-[#f5f5f5] flex justify-between flex-col p-5 rounded-sm  ">
                     <h1 className="font-medium text-[22px]">Achievements</h1>
 
                     <div className="flex justify-center gap-4 dark:text-black font-medium text-sm">

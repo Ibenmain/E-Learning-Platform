@@ -43,7 +43,7 @@ const CourseCard = ({ course }: { course: Course }) => (
 
 const MyLearning = () => {
   const [filter, setFilter] = useState("in-progress");
-  const [visibleCount, setVisibleCount] = useState(2);
+  const [visibleCount, setVisibleCount] = useState(4);
 
   const filteredCourses = courses.filter((course) =>
     filter === "in-progress" ? course.progress < 100 : course.progress === 100
@@ -52,38 +52,36 @@ const MyLearning = () => {
   const visibleCourses = filteredCourses.slice(0, visibleCount);
 
   return (
-    <div className="flex justify-center items-center w-full h-full">
-      <div className="container mx-auto flex flex-col justify-center items-start text-black dark:text-white w-full space-y-10 px-14 xl:px-0">
-        <div className="space-x-4 relative mb-6">
-          <button
-            onClick={() => { setFilter("in-progress"); setVisibleCount(2); }}
-            className={`py-2 px-4 rounded-md text-white ${filter === "in-progress" ? "bg-[#212a34]" : "bg-gray-400"}`}
-          >
-            In Progress
-          </button>
-          <button
-            onClick={() => { setFilter("completed"); setVisibleCount(2); }}
-            className={`py-2 px-4 rounded-md text-white ${filter === "completed" ? "bg-[#9FEF00]" : "bg-gray-400"}`}
-          >
-            Completed
-          </button>
-        </div>
+    <div className="container mx-auto flex flex-col justify-start items-start text-black dark:text-white w-full space-y-10 px-14 xl:px-0">
+      <div className="space-x-4 relative mb-6">
+        <button
+          onClick={() => { setFilter("in-progress"); setVisibleCount(2); }}
+          className={`py-2 px-4 rounded-md text-white ${filter === "in-progress" ? "bg-[#212a34]" : "bg-gray-400"}`}
+        >
+          In Progress
+        </button>
+        <button
+          onClick={() => { setFilter("completed"); setVisibleCount(2); }}
+          className={`py-2 px-4 rounded-md text-white ${filter === "completed" ? "bg-[#9FEF00]" : "bg-gray-400"}`}
+        >
+          Completed
+        </button>
+      </div>
 
-        <div className="w-full h-[70vh] overflow-y-scroll hide-scrollbar">
-          {visibleCourses.map((course, index) => (
-            <CourseCard key={index} course={course} />
-          ))}
-          {visibleCount < filteredCourses.length && (
-            <div className="w-full  flex justify-center items-center ">
-              <button
-                onClick={() => setVisibleCount(prev => prev + 2)}
-                className="text-2xl font-medium text-[#9FEF00] py-2 px-4 rounded-md"
-              >
-                More Courses
-              </button>
-            </div>
-          )}
-        </div>
+      <div className="w-full h-[70vh] overflow-y-scroll hide-scrollbar">
+        {visibleCourses.map((course, index) => (
+          <CourseCard key={index} course={course} />
+        ))}
+        {visibleCount < filteredCourses.length && (
+          <div className="w-full  flex justify-center items-center ">
+            <button
+              onClick={() => setVisibleCount(prev => prev + 4)}
+              className="text-2xl font-medium text-[#9FEF00] py-2 px-4 rounded-md"
+            >
+              More Courses
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
