@@ -43,7 +43,7 @@ const Features = () => {
                 <div className='flex flex-wrap items-center justify-center gap-4 sm:gap-10 lg:gap-20 py-14 '>
                     {features.map(feature => (
                         <div key={feature.id} className='flex flex-col ~w-[250px]/[400px] h-auto rounded-xl shadow-custom bg-white p-4 space-y-2 font-sans dark:bg-[#212A34]  hover:-translate-y-1 hover:scale-105 duration-300'>
-                            <Icon icon={feature.icon} style={{ color: "#9FEF00" }} className=' w-8 h-8 md:w-12 md:h-12'/>
+                            <Icon icon={feature.icon} style={{ color: "#9FEF00" }} className=' w-8 h-8 md:w-12 md:h-16' />
                             <h1 className='text-[#334155] dark:text-[#F1F5F9] font-extrabold ~text-[14px]/[32px] ~leading-[20px]/[48px] '>{feature.title}</h1>
                             <p className='text-[#65748B] dark:text-[#F1F5F9] font-semibold ~text-[10px]/[18px] ~leading-[12px]/[28px]' >{feature.description}</p>
                         </div>

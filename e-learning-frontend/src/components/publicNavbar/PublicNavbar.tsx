@@ -11,14 +11,12 @@ const PublicNavbar = () => {
     const { theme, setTheme } = useTheme()
     const navigate = useNavigate()
     const path = window.location.pathname
-    // const isAuth = path === '/landingpage' ? true : false
     const { isAuthenticated } = useAuth()
 
     return isAuthenticated ? (
-        // ${isAuth  ? 'sticky top-0' : 'fixed'}
         <div>
 
-            <div className={` fixed w-full bg-white dark:bg-[#212A34] z-20 top-0`}>
+            <div className={` fixed w-full bg-[#c0c4c7] dark:bg-[#212A34] z-20 top-0`}>
                 <div className='items-center justify-between h-14 p-3 flex'>
                     <div>
                         {theme === "dark" ?
@@ -41,7 +39,7 @@ const PublicNavbar = () => {
             {isAuthenticated ? <PrivateNavbar /> : null}
         </div>
     ) : (
-        <div className={` fixed w-full bg-white dark:bg-[#212A34] top-0 z-10 flex flex-row justify-between items-center `}>
+        <div className={` fixed w-full bg-white dark:bg-[#212A34] top-0 z-20 flex flex-row justify-between items-center `}>
             <div className='items-center justify-between h-14 p-2 flex w-full'>
                 <div>
                     {theme === "dark" ?
@@ -55,8 +53,8 @@ const PublicNavbar = () => {
                         <Icon icon="proicons:dark-theme" width={33} height={33} />
                     </button>
                     <Languages />
-                    <button className='h-8 w-32 size-4 font-sans rounded-[2px]  bg-black dark:bg-[#212A34] text-white ' onClick={() => navigate('/signin')}>Login</button>
-                    <button className='h-8 w-32 font-sans rounded-[2px] bg-gradient-to-tr from-[#AAED00] to-[#5CFD85] text-black ' onClick={() => navigate('/landingpage')}>Get started</button>
+                    <button className='h-8 w-32 size-4 font-sans rounded-[3px]  dark:bg-gray-300 bg-[#212A34] dark:text-black text-white ' onClick={() => navigate('/signin')}>Login</button>
+                    <button className='h-8 w-32 font-sans rounded-[3px] bg-gradient-to-tr from-[#AAED00] to-[#5CFD85] text-black ' onClick={() => navigate('/landingpage')}>Get started</button>
                 </div>
             </div>
             <div className='sm:hidden flex items-center justify-center'>

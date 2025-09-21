@@ -1,5 +1,4 @@
 import './App.css';
-import Layout from './layouts/layout';
 import LandingPage from './pages/landingpage/LandingPage';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import NotFound from './pages/notfound/NotFound';
@@ -11,14 +10,18 @@ import { ProtectedRoute } from './context/ProtectedRoute';
 import GithubCallback from './pages/authe/github/GithubCallback';
 import Home from './pages/home/home';
 import Profile from './pages/profile/Profile';
-import MyLearning from './pages/myLearning/MyLearning';
 import Careers from './pages/careers/Careers';
 import Settings from './pages/settings/Settings'
 import CountDown from './pages/countDown/CountDown';
+import MyLearningLayout from './layouts/myLearningLayout/MyLearningLayout';
+import MainLayout from './layouts/mainLayout/MainLayout';
+import MyLearning from './pages/myLearning/MyLearning';
+import MotionPlanning from './pages/course/motion-plainning/MotionPlaninng';
+import Robotics from './pages/course/robotics/Robotics';
 
 function App() {
   return (
-    <Layout>
+    <MainLayout>
       <Routes >
         <Route path="/" element={<Navigate to="/landingpage" />} />
         <Route path="/landingpage" element={<LandingPage />} />
@@ -34,8 +37,12 @@ function App() {
         <Route path='/count-down' element={<ProtectedRoute><CountDown /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
         <Route path="/auth/github/callback" element={<GithubCallback />} />
+        <Route path='/course' element={<ProtectedRoute><MyLearningLayout /></ProtectedRoute>}>
+          <Route path='/course/motion-planning' element={<ProtectedRoute><MotionPlanning /></ProtectedRoute>} />
+          <Route path='/course/robotics' element={<ProtectedRoute><Robotics /></ProtectedRoute>} />
+        </Route>
       </Routes>
-    </Layout>
+    </MainLayout>
   );
 }
 

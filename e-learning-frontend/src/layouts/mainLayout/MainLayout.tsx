@@ -1,8 +1,9 @@
-import PublicNavbar from "../components/publicNavbar/PublicNavbar";
-import { ThemeProvider } from "../components/themeProvider/theme-provider";
-import { useAuth } from "../context/AutheContext";
+import React from 'react';
+import { ThemeProvider } from '../../components/themeProvider/theme-provider';
+import { useAuth } from '../../context/AutheContext';
+import PublicNavbar from '../../components/publicNavbar/PublicNavbar';
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const MainLayout = ({ children }: { children: React.ReactNode }) => {
     const { isAuthenticated } = useAuth();
 
     return (
@@ -21,4 +22,4 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     );
 };
 
-export default Layout;
+export default MainLayout;

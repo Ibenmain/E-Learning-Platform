@@ -66,8 +66,8 @@ const Home = () => {
         <div className=" ">
             <div className=' container mx-auto flex flex-col justify-center items-center text-black dark:text-white w-full space-y-10 px-10 xl:px-0 '>
                 <div className='relative flex items-center w-full text-black dark:text-white'>
-                    <input type="text" placeholder="Search..." className="w-full pl-10 pr-4 py-2  rounded-md focus:outline-none outline-none bg-[#f8fafc] dark:bg-[#212a34] text-black dark:text-white" />
-                    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#9FEF00]">
+                    <input type="text" placeholder="Search..." className="w-full pl-10 pr-4 py-2  rounded-md focus:outline-none outline-none bg-[#e9e9e9] dark:bg-[#212a34] text-black dark:text-white" />
+                    <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#9eec02]">
                         <Icon icon="ic:baseline-search" width="20" height="20" />
                     </span>
                 </div>

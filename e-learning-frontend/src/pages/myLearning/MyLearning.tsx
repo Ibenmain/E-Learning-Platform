@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 interface Course {
   title: string;
@@ -18,7 +19,7 @@ const courses: Course[] = [
   { title: "Sample Course 8", description: "This is a sample course description that provides an overview of the course content and objectives.", image: "/images/image.jpeg", progress: 100 },
 ];
 
-const CourseCard = ({ course }: { course: Course }) => (
+const CourseCard = ({ course, navigate }: { course: Course, navigate: any }) => (
   <div className="border-b border-gray-300 pb-2 flex mb-16 w-full rounded-lg">
     <img src={course.image} alt={`Course image for ${course.title}`} className="w-44 h-44 object-cover rounded-full mx-8" loading="lazy" />
     <div className="flex-1 flex flex-col justify-evenly space-y-4 h-44">
@@ -34,7 +35,7 @@ const CourseCard = ({ course }: { course: Course }) => (
       </div>
     </div>
     <div className="flex items-end justify-end">
-      <button className="bg-[#9FEF00] text-white py-2 px-4 rounded-md h-11 w-26">
+      <button onClick={() => {navigate("/course")}} className="bg-[#9FEF00] text-white py-2 px-4 rounded-md h-11 w-26">
         Go to Course
       </button>
     </div>
@@ -44,6 +45,7 @@ const CourseCard = ({ course }: { course: Course }) => (
 const MyLearning = () => {
   const [filter, setFilter] = useState("in-progress");
   const [visibleCount, setVisibleCount] = useState(4);
+  const navigate  = useNavigate();
 
   const filteredCourses = courses.filter((course) =>
     filter === "in-progress" ? course.progress < 100 : course.progress === 100
@@ -70,7 +72,7 @@ const MyLearning = () => {
 
       <div className="w-full h-[70vh] overflow-y-scroll hide-scrollbar">
         {visibleCourses.map((course, index) => (
-          <CourseCard key={index} course={course} />
+          <CourseCard navigate={navigate} key={index} course={course} />
         ))}
         {visibleCount < filteredCourses.length && (
           <div className="w-full  flex justify-center items-center ">
