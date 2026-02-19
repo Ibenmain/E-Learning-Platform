@@ -22,6 +22,7 @@ class RegisterView(APIView):
         user = CustomUser.objects.filter(email=user_email).exists()
         if user:
             return Response({'message': 'User with this email already exists!'}, status=status.HTTP_409_CONFLICT)
+        # verify data format and create user
         serializer = UserRegistrationSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             user = serializer.save()
@@ -103,7 +104,6 @@ class GithubLogin(APIView):
         if not code:
             return Response({"detail": "code missing"}, status=400)
 
-        # 1) Exchange code for access token
         token_resp = requests.post(
             "https://github.com/login/oauth/access_token",
             headers={"Accept": "application/json"},
@@ -118,7 +118,6 @@ class GithubLogin(APIView):
         if not access_token:
             return Response({"detail": "Invalid code", "debug": token_data}, status=400)
 
-        # 2) Get user data
         user_resp = requests.get(
             "https://api.github.com/user",
             headers={"Authorization": f"Bearer {access_token}"},

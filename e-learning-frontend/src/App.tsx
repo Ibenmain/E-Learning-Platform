@@ -7,7 +7,7 @@ import SignupForm from './pages/authe/signup/Signup';
 import ForgetPassword from './pages/authe/forgetpassword/ForgetPassword';
 import VerificationCode from './pages/authe/verificationCode/VerificationCode';
 import { ProtectedRoute } from './context/ProtectedRoute';
-import GithubCallback from './pages/authe/github/GithubCallback';
+import GithubCallback from './pages/authe/github/callback';
 import Home from './pages/home/home';
 import Profile from './pages/profile/Profile';
 import Careers from './pages/careers/Careers';

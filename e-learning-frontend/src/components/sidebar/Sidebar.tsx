@@ -1,13 +1,13 @@
 import { Icon } from "@iconify/react";
 import { NavLink } from "react-router-dom";
 
-export default function Sidebar({
+const Sidebar = ({
     collapsed,
     setCollapsed,
 }: {
     collapsed: boolean;
     setCollapsed: (collapsed: boolean) => void;
-}) {
+}) => {
     return (
         <aside
             className={`${collapsed ? "w-16" : "w-64"
@@ -67,3 +67,5 @@ export default function Sidebar({
         </aside>
     );
 }
+
+export default Sidebar;
